@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Bike Buyers Analysis</h1>
+
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <script type="text/javascript" >
+			function MS() {
+				alert("Please enter data in 0 for Married and 1 for unmarried");
+			}
+			function Gd() {
+				alert("Please enter 0 for Female and 1 for Male");
+			}
+			function Hw() {
+				alert("Please enter 1 for YES and 0 for NO");
+			}
+			function Rg() {
+				alert("PLease enter 0 for Europe, 1 for North America, 2 for Pacific ");
+			}
+			function Ed() {
+				alert("Please enter 0 for Bachelors 1 for Graduate Degree 2 for High school 3 for Partial college 4 for Partial High school");
+			}
+			function Cmo() {
+				alert("Please enter 0 for 0-1miles, 1 for 1-2miles, 2 for 10+miles, 3 for 2-5miles,4 for 5-10miles");
+			}
+			function Occ() {
+				alert("Please enter 0 for Clerical 1 for Management 2 for Manual 3 for Professional 4 for Skilled Manual");
+			}
+		</script>
+
+    	<input type="text" name="Marital Status" placeholder="Marital Status"  required="required" onmouseover ="MS()" />
+
+        <input type="text" name="Gender" placeholder="Gender" required="required" onmouseover="Gd()"/>
+		<input type="text" name="Income" placeholder="Income" required="required" />
+        <input type="text" name="Children " placeholder="Children " required="required" />
+        <input type="text" name="Education" placeholder="Education" required="required" onmouseover="Ed()"/>
+        <input type="text" name="Occupation" placeholder="Occupation" required="required" onmouseover="Occ()"/>
+        <input type="text" name="Home Owner" placeholder="Home Owner" required="required" onmouseover="Hw()"/>
+        <input type="text" name="Cars" placeholder="Cars" required="required" />
+        <input type="text" name="Commute Distance" placeholder="Commute Distance" required="required" onmouseover="Cmo()"/>
+        <input type="text" name="Region" placeholder="Region" required="required" onmouseover="Rg()"/>
+        <input type="text" name="Age" placeholder="Age" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
